@@ -1,0 +1,193 @@
+/*  Portfolio Section */
+/*  *.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+   border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+} 
+
+.portfolio-item {
+    position: relative; /* Penting untuk positioning absolut */
+/*  } */
+/*  .portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 10px solid white; /* Border putih */
+  /*    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+   /*  transform: rotate(-3deg); /* Sedikit rotasi */
+/*   } */ 
+
+/*  *.portfolio-item h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.portfolio-item p {
+    padding: 0 1rem 1rem 1rem;
+    margin: 0;
+}/*  */
+ 
+ 
+/* ==========================================
+   BAGIAN LATAR BELAKANG & BINTANG
+   ========================================== */
+body {
+    margin: 0;
+    min-height: 100vh; /* Ganti height jadi min-height biar bisa scroll */
+    background: #0a0e27; /* Warna biru gelap malam */
+    overflow-x: hidden; /* Biar nggak ada scroll ke samping */
+    font-family: sans-serif;
+}
+
+/* Wadah bintang */
+.stars {
+    position: fixed; /* Tetap diam di belakang meski discroll */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Taruh di paling belakang */
+}
+
+/* Bentuk bintangnya */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+/* Animasi bintang berkelip */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================
+   TOMBOL PANAH BALIK
+   ========================================== */
+.back-arrow {
+    position: fixed; /* Tetep di tempat meski discroll */
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.back-arrow a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #80d6ff; /* Warna biru */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 10px #80d6ff;
+    transition: all 0.3s ease;
+    border: 2px solid #80d6ff;
+    padding: 8px 15px;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+}
+
+.back-arrow a:hover {
+    background: #4ade80;
+    color: #000;
+    box-shadow: 0 0 20px #4ade80;
+}
+
+/* ==========================================
+   BAGIAN PORTFOLIO
+   ========================================== */
+.portfolio {
+    padding: 4rem 2rem;
+    color: white; /* Tulisan jadi putih */
+}
+
+.portfolio h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* TETEP 2 KOLOM */
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    border-radius: 5px;
+    overflow: visible;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin: 8px;
+  /*    background: rgba(255, 255, 255, 0.1); */
+    padding-bottom: 1rem;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 
+        0 0 10px #fff,        /* Cahaya putih */
+        0 0 20px #80d6ff,    /* Cahaya biru */
+        0 0 30px #80d6ff,
+        5px 5px 15px rgba(0,0,0,0.5);
+    transform: rotate(-3deg);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.portfolio-item:hover img {
+    transform: rotate(0);
+}
+
+.portfolio-item h3 {
+    padding: 1.2rem 1rem 0.3rem;
+    margin: 0;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.portfolio-item p {
+    padding: 0.3rem 1rem 1rem;
+    margin: 0;
+    color: #ddd;
+}
+
+.project-link {
+    display: block;
+    background-color: #80d6ffd6;
+    color: #FFEAEAFF;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border-radius: 0 0 5px 5px;
+}
+
+.project-link:hover {
+    background-color: #555;
+}
+
+.float-on-scroll {
+    transition: transform 0.3s ease-in-out;
+}
+
+.float-on-scroll:hover {
+    transform: translateY(-10px);
+}

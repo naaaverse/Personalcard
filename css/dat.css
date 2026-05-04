@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #050510;
+    background-image: 
+        linear-gradient(rgba(128, 214, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128, 214, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px; /* Ukuran kotaknya */
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+/* Tambah efek titik-titik sambung menyambung */
+.bg-effect {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: radial-gradient(rgba(128, 214, 255, 0.5) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================================
+   TOMBOL PANAH BALIK
+   ========================================== */
+.back-arrow {
+    position: fixed; /* Tetep di tempat meski discroll */
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.back-arrow a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #80d6ff; /* Warna biyu */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 10px #80d6ff;
+    transition: all 0.3s ease;
+    border: 2px solid #80d6ff;
+    padding: 8px 15px;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+}
+
+.back-arrow a:hover {
+    background: #80d6ff;
+    color: #000;
+    box-shadow: 0 0 20px #80d6ff;
+}
+
+
+/* --- GANTI KODE .portfolio-item img DENGAN YANG INI --- */
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    padding-bottom: 1.5rem; /* TAMBAH INI BIAR ADA JARAK BAWAH */
+    
+    /* FRAME MODERN */
+    border: 8px solid #ffffff;
+    border-radius: 20px; /* Sudut melengkung */
+    box-shadow: 
+        15px 15px 0px rgba(128, 214, 255, 0.3), /* Bayangan biru di belakang */
+        5px 5px 15px rgba(0,0,0,0.3);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.portfolio-item:hover img {
+    transform: rotate(0);
+}
+
+.portfolio h2 {
+    text-align: center;
+    color: #80d6ff;
+    text-shadow: 0 0 10px #80d6ff;
+    font-size: 2rem;
+}
+
+.portfolio-item p {
+    padding: 0.3rem 1rem 1rem;
+    margin: 0;
+    color: #ccc;
+}
+
+
+/* HAPUS YANG display: none, GANTI DENGAN INI */
+.project-link {
+    display: block; /* Biar muncul */
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    font-weight: bold;
+    padding: 0.9rem 1rem;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    margin: 1.5rem 1rem 0 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer; /* Biar kursor jadi tangan */
+}
+
+.project-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.5);
+}
+
+
+/* ==========================================
+   BAGIAN POP-UP (KETIKA DIKLIK) - WARNA BIRU
+   ========================================== */
+.modal {
+    display: none; /* Awalnya sembunyi */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Latar gelap */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+    
+    /* WARNA BIRU SAMA PERSIS */
+    border: 5px solid #80d6ff;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(128, 214, 255, 0.8);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #80d6ff; /* Warna X jadi biru */
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 10000;
+    text-shadow: 0 0 10px rgba(128, 214, 255, 0.8);
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}

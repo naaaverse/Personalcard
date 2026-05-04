@@ -1,0 +1,269 @@
+/* ==========================================
+   LATAR BELAKANG & ALIEN
+   ========================================== */
+body {
+    margin: 0;
+    height: 100vh;
+    background: #1a1a2e;
+    overflow-y: auto;
+    overlow-x: hidden;
+    font-family: sans-serif;
+}
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: #00f5d4;
+    border-radius: 2px;
+    animation: fall 3s linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* ==========================================
+   TOMBOL PANAH BALIK
+   ========================================== */
+.back-arrow {
+    position: fixed; /* Tetep di tempat meski discroll */
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.back-arrow a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4ade80; /* Warna hijau */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 10px #4ade80;
+    transition: all 0.3s ease;
+    border: 2px solid #4ade80;
+    padding: 8px 15px;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+}
+
+.back-arrow a:hover {
+    background: #4ade80;
+    color: #000;
+    box-shadow: 0 0 20px #4ade80;
+}
+
+/* GAMBAR ALIEN DARI CSS */
+.alien-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.alien {
+    display: inline-block;
+}
+
+.alien .head {
+    width: 80px;
+    height: 90px;
+    background: #4ade80; /* Warna hijau alien */
+    border-radius: 40% 40% 50% 50%;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 0 20px #4ade80;
+}
+
+.alien .eye {
+    width: 25px;
+    height: 35px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    border: 3px solid #fff;
+}
+
+.alien .eye.left { left: 10px; }
+.alien .eye.right { right: 10px; }
+
+.alien .eye::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.alien .mouth {
+    width: 20px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.alien .body {
+    width: 50px;
+    height: 50px;
+    background: #4ade80;
+    margin: -5px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #4ade80;
+}
+
+.alien .arm {
+    width: 15px;
+    height: 40px;
+    background: #4ade80;
+    position: absolute;
+    top: 40px;
+    box-shadow: 0 0 10px #4ade80;
+}
+
+.alien .arm.left { 
+    left: -15px; 
+    transform: rotate(-20deg);
+}
+.alien .arm.right { 
+    right: -15px; 
+    transform: rotate(20deg);
+}
+
+/* ==========================================
+   BAGIAN PORTFOLIO
+   ========================================== */
+.portfolio {
+    padding: 2rem;
+    color: white;
+}
+
+.portfolio h2 {
+    text-align: center;
+    color: #4ade80;
+    text-shadow: 0 0 10px #4ade80;
+    font-size: 2rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* TETEP 2 KOLOM */
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    border-radius: 5px;
+    overflow: visible;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin: 8px;
+   /*  background: rgba(74, 222, 128, 0.1); */
+    padding-bottom: 1rem;
+   /*  border: 1px solid rgba(74, 222, 128, 0.3);/ */
+    cursor: pointer; /* Biar kursor jadi tangan pas di atas gambar */
+}
+
+/* FRAME BARU - BENTUK BEDA */
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    
+    /* GANTI BENTUK DISINI */
+    border: 5px solid transparent;
+    border-radius: 20px; /* Sudut tumpul beda */
+    background: linear-gradient(#000, #000) padding-box,
+                linear-gradient(45deg, #4ade80, #22d3ee) border-box; /* Gradien hijau-biru */
+    box-shadow: 
+        0 0 20px rgba(74, 222, 128, 0.5),
+        inset 0 0 10px rgba(74, 222, 128, 0.2);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.portfolio-item:hover img {
+    transform: rotate(0) scale(1.02);
+}
+
+.portfolio-item h3 {
+    padding: 1.2rem 1rem 0.3rem;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #4ade80;
+}
+
+.portfolio-item p {
+    padding: 0.3rem 1rem 1rem;
+    margin: 0;
+    color: #ccc;
+}
+
+/* HAPUS TOMBOL CLICK */
+.project-link {
+    display: none; /* Hilang total */
+}
+
+.float-on-scroll {
+    transition: transform 0.3s ease-in-out;
+}
+
+.float-on-scroll:hover {
+    transform: translateY(-10px);
+}
+
+/* ==========================================
+   BAGIAN POP-UP (KETIKA DIKLIK)
+   ========================================== */
+.modal {
+    display: none; /* Awalnya sembunyi */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Latar gelap */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+    border: 5px solid #4ade80;
+    border-radius: 10px;
+    box-shadow: 0 0 50px #4ade80;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #4ade80;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 10000;
+    text-shadow: 0 0 10px #4ade80;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
